@@ -2,7 +2,7 @@
  *                                                                          *
  *  Copyright (C)  2011  Christian Krause                                   *
  *                                                                          *
- *  Christian Krause <wookietreiber@googlemail.com>                         *
+ *  Christian Krause <kizkizzbangbang@googlemail.com>                       *
  *                                                                          *
  ****************************************************************************
  *                                                                          *
