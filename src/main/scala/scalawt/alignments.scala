@@ -2,7 +2,7 @@
  *                                                                          *
  *  Copyright (C)  2011  Christian Krause                                   *
  *                                                                          *
- *  Christian Krause <wookietreiber@users.berlios.de>                       *
+ *  Christian Krause <wookietreiber@googlemail.com>                         *
  *                                                                          *
  ****************************************************************************
  *                                                                          *
@@ -87,53 +87,53 @@ object Alignment {
 }
 
 /** Base of the alignment hierarchy.
-	*
-	* @see [[scalawt.Direction]]
-	* @see [[scalawt.Horizontal]]
-	* @see [[scalawt.Vertical]]
-	* @see [[scalawt.Text]]
-	*/
+  *
+  * @see [[scalawt.Direction]]
+  * @see [[scalawt.Horizontal]]
+  * @see [[scalawt.Vertical]]
+  * @see [[scalawt.Text]]
+  */
 sealed trait Alignment
 
 /** Base of alignments used for direction-based layouts and movement.
-	*
-	* @see [[scalawt.Alignment.Top]]
-	* @see [[scalawt.Alignment.Bottom]]
-	* @see [[scalawt.Alignment.Left]]
-	* @see [[scalawt.Alignment.Right]]
-	* @see [[scalawt.Alignment.TopLeft]]
-	* @see [[scalawt.Alignment.BottomRight]]
-	* @see [[scalawt.Alignment.TopRight]]
-	* @see [[scalawt.Alignment.BottomLeft]]
-	*/
+  *
+  * @see [[scalawt.Alignment.Top]]
+  * @see [[scalawt.Alignment.Bottom]]
+  * @see [[scalawt.Alignment.Left]]
+  * @see [[scalawt.Alignment.Right]]
+  * @see [[scalawt.Alignment.TopLeft]]
+  * @see [[scalawt.Alignment.BottomRight]]
+  * @see [[scalawt.Alignment.TopRight]]
+  * @see [[scalawt.Alignment.BottomLeft]]
+  */
 sealed trait Direction extends Alignment {
 	/** Returns the opposite direction. */
 	def opposite: Alignment
 }
 
 /** Base of the horizontal alignment hierarchy.
-	*
-	* @see [[scalawt.Alignment.Left]]
-	* @see [[scalawt.Alignment.Right]]
-	* @see [[scalawt.Alignment.Center]]
-	*/
+  *
+  * @see [[scalawt.Alignment.Left]]
+  * @see [[scalawt.Alignment.Right]]
+  * @see [[scalawt.Alignment.Center]]
+  */
 sealed trait Horizontal extends Alignment
 
 /** Base of the vertical alignment hierarchy.
-	*
-	* @see [[scalawt.Alignment.Top]]
-	* @see [[scalawt.Alignment.Bottom]]
-	* @see [[scalawt.Alignment.Center]]
-	*/
+  *
+  * @see [[scalawt.Alignment.Top]]
+  * @see [[scalawt.Alignment.Bottom]]
+  * @see [[scalawt.Alignment.Center]]
+  */
 sealed trait Vertical extends Alignment
 
 /** Base of alignments that can be used to align text.
-	*
-	* @see [[scalawt.Alignment.Left]]
-	* @see [[scalawt.Alignment.Right]]
-	* @see [[scalawt.Alignment.Center]]
-	* @see [[scalawt.Alignment.Justified]]
-	* @see [[scalawt.Alignment.Leading]]
-	* @see [[scalawt.Alignment.Trailing]]
-	*/
+  *
+  * @see [[scalawt.Alignment.Left]]
+  * @see [[scalawt.Alignment.Right]]
+  * @see [[scalawt.Alignment.Center]]
+  * @see [[scalawt.Alignment.Justified]]
+  * @see [[scalawt.Alignment.Leading]]
+  * @see [[scalawt.Alignment.Trailing]]
+  */
 sealed trait Text extends Alignment

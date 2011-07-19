@@ -2,7 +2,7 @@
  *                                                                          *
  *  Copyright (C)  2011  Christian Krause                                   *
  *                                                                          *
- *  Christian Krause <wookietreiber@users.berlios.de>                       *
+ *  Christian Krause <wookietreiber@googlemail.com>                         *
  *                                                                          *
  ****************************************************************************
  *                                                                          *
