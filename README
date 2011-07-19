@@ -1,0 +1,33 @@
+The 'SCALA Widget Toolkit' (or 'SCALa Abstract Widget Toolkit' if you will) is
+a widget toolkit that intentionally does not implement the view concern of the
+model-view-controller pattern. How the widgets are drawn is intended to be
+implemented by subprojects.
+
+User preference plays an important role. Also it is not always possible to run
+full-blown GUI applications, e.g. servers usually do not support it, but a UI
+would be really helpful even if it is 'just' a TUI. The freedom should be to
+configure which look and feel one wants to use when the application gets
+started (depending on either a configuration file like akka.conf or an
+environment variable like SDLs SDL_VIDEODRIVER, not sure yet). This way 'write
+once, run anywhere' becomes 'write once, interact with anywhere', which
+hopefully will include:
+
+- curses
+- Linux framebuffer
+- X11
+- wayland
+- web-based UIs
+- ...
+
+Also I really dislike Java's AWT (and Swing, too, because it is based on AWT),
+because:
+
+- it lacks scala :) e.g. I would like to mixin traits like Focusable if I want
+  a widget to be focusable, there is a lot of state that is not necessarily
+  needed, maybe we can work around that with mixin composition
+- using Linux, AWT needs a running X server, so you cannot run applications
+  using the Linux frame buffer or DirectFB without the need for an X server
+
+Also it would be kinda awesome to use Actors for concurrency instead of the
+single threaded EDT approach, though I don't know whether or not this can be
+achieved at all ...
