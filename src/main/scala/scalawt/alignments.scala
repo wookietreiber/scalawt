@@ -33,56 +33,68 @@ object Alignment {
 	// direction alignments
 	// -----------------------------------------------------------------------
 
+	/** Top position. */
 	case object Top extends Direction with Vertical {
 		/** Returns [[scalawt.Alignment.Bottom]]. */
-		override val opposite = Bottom
+		override lazy val opposite = Bottom
 	}
 
+	/** Bottom position. */
 	case object Bottom extends Direction with Vertical {
 		/** Returns [[scalawt.Alignment.Top]]. */
-		override val opposite = Top
+		override lazy val opposite = Top
 	}
 
+	/** Left position. */
 	case object Left extends Direction with Horizontal with Text {
 		/** Returns [[scalawt.Alignment.Right]]. */
-		override val opposite = Right
+		override lazy val opposite = Right
 	}
 
+	/** Right position. */
 	case object Right extends Direction with Horizontal with Text {
 		/** Returns [[scalawt.Alignment.Left]]. */
-		override val opposite = Left
+		override lazy val opposite = Left
 	}
 
+	/** Top-left position. */
 	case object TopLeft extends Direction {
 		/** Returns [[scalawt.Alignment.BottomRight]]. */
-		override val opposite = BottomRight
+		override lazy val opposite = BottomRight
 	}
 
+	/** Bottom-right position. */
 	case object BottomRight extends Direction {
 		/** Returns [[scalawt.Alignment.TopLeft]]. */
-		override val opposite = TopLeft
+		override lazy val opposite = TopLeft
 	}
 
+	/** Top-right position. */
 	case object TopRight extends Direction {
 		/** Returns [[scalawt.Alignment.BottomLeft]]. */
-		override val opposite = BottomLeft
+		override lazy val opposite = BottomLeft
 	}
 
+	/** Bottom-left position. */
 	case object BottomLeft extends Direction {
 		/** Returns [[scalawt.Alignment.TopRight]]. */
-		override val opposite = TopRight
+		override lazy val opposite = TopRight
 	}
 
 	// -----------------------------------------------------------------------
 	// text alignments
 	// -----------------------------------------------------------------------
 
+	/** Central position. */
 	case object Center extends Horizontal with Vertical with Text
 
+	/** Leading edge for text. */
 	case object Leading extends Text
 
+	/** Trailing edge for text. */
 	case object Trailing extends Text
 
+	/** Text justification. */
 	case object Justified extends Text
 }
 
