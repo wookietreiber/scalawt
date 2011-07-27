@@ -26,5 +26,8 @@
 
 package scalawt
 
+/** Top-level container. */
 abstract class Window extends Container {
+  /** Returns the title of this window. */
+  def title: String
 }
