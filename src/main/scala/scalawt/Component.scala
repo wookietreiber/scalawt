@@ -26,8 +26,8 @@
 
 package scalawt
 
-/** Top-level container. */
-abstract class Window extends Widget with Container {
-  /** Returns the title of this window. */
-  def title: String
+/** User interface component. */
+abstract class Component extends Widget {
+  /** Optionally returns the parent [[scalawt.Container]] of this component. */
+  def parent: Option[Container]
 }

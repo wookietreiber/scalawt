@@ -27,7 +27,9 @@
 package scalawt
 
 /** Contains other widgets. */
-abstract class Container extends Widget {
-  /** Returns the contained widgets. */
-  def contents: Seq[Widget]
+trait Container {
+  self: Widget =>
+
+  /** Returns the contained components. */
+  def contents: Seq[Component]
 }
