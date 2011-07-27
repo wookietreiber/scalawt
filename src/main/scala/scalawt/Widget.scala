@@ -26,5 +26,11 @@
 
 package scalawt
 
+/** The lowest common denominator of user interface elements. */
 abstract class Widget {
+  /** Optionally returns the parent [[scalawt.Container]] of this widget. */
+  def parent: Option[Container]
+
+  /** Optionally returns the parent [[scalawt.Window]] of this widget. */
+  def owner: Option[Window]
 }
