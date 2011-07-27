@@ -29,73 +29,95 @@ package scalawt
 /** Holds the actual alignment objects. */
 object Alignment {
 
-	// -----------------------------------------------------------------------
-	// direction alignments
-	// -----------------------------------------------------------------------
+  // -----------------------------------------------------------------------
+  // direction alignments
+  // -----------------------------------------------------------------------
 
-	/** Top position. */
-	case object Top extends Direction with Vertical {
-		/** Returns [[scalawt.Alignment.Bottom]]. */
-		override lazy val opposite = Bottom
-	}
+  /** Top position. */
+  case object Top extends Direction with Vertical {
+    /** Returns [[scalawt.Alignment.Bottom]]. */
+    override lazy val opposite = Bottom
+  }
 
-	/** Bottom position. */
-	case object Bottom extends Direction with Vertical {
-		/** Returns [[scalawt.Alignment.Top]]. */
-		override lazy val opposite = Top
-	}
+  /** Bottom position. */
+  case object Bottom extends Direction with Vertical {
+    /** Returns [[scalawt.Alignment.Top]]. */
+    override lazy val opposite = Top
+  }
 
-	/** Left position. */
-	case object Left extends Direction with Horizontal with Text {
-		/** Returns [[scalawt.Alignment.Right]]. */
-		override lazy val opposite = Right
-	}
+  /** Left position. */
+  case object Left extends Direction with Horizontal with Text {
+    /** Returns [[scalawt.Alignment.Right]]. */
+    override lazy val opposite = Right
+  }
 
-	/** Right position. */
-	case object Right extends Direction with Horizontal with Text {
-		/** Returns [[scalawt.Alignment.Left]]. */
-		override lazy val opposite = Left
-	}
+  /** Right position. */
+  case object Right extends Direction with Horizontal with Text {
+    /** Returns [[scalawt.Alignment.Left]]. */
+    override lazy val opposite = Left
+  }
 
-	/** Top-left position. */
-	case object TopLeft extends Direction {
-		/** Returns [[scalawt.Alignment.BottomRight]]. */
-		override lazy val opposite = BottomRight
-	}
+  /** Top-left position. */
+  case object TopLeft extends Direction {
+    /** Returns [[scalawt.Alignment.BottomRight]]. */
+    override lazy val opposite = BottomRight
+  }
 
-	/** Bottom-right position. */
-	case object BottomRight extends Direction {
-		/** Returns [[scalawt.Alignment.TopLeft]]. */
-		override lazy val opposite = TopLeft
-	}
+  /** Bottom-right position. */
+  case object BottomRight extends Direction {
+    /** Returns [[scalawt.Alignment.TopLeft]]. */
+    override lazy val opposite = TopLeft
+  }
 
-	/** Top-right position. */
-	case object TopRight extends Direction {
-		/** Returns [[scalawt.Alignment.BottomLeft]]. */
-		override lazy val opposite = BottomLeft
-	}
+  /** Top-right position. */
+  case object TopRight extends Direction {
+    /** Returns [[scalawt.Alignment.BottomLeft]]. */
+    override lazy val opposite = BottomLeft
+  }
 
-	/** Bottom-left position. */
-	case object BottomLeft extends Direction {
-		/** Returns [[scalawt.Alignment.TopRight]]. */
-		override lazy val opposite = TopRight
-	}
+  /** Bottom-left position. */
+  case object BottomLeft extends Direction {
+    /** Returns [[scalawt.Alignment.TopRight]]. */
+    override lazy val opposite = TopRight
+  }
 
-	// -----------------------------------------------------------------------
-	// text alignments
-	// -----------------------------------------------------------------------
+  // -----------------------------------------------------------------------
+  // text alignments
+  // -----------------------------------------------------------------------
 
-	/** Central position. */
-	case object Center extends Horizontal with Vertical with Text
+  /** Central position. */
+  case object Center extends Horizontal with Vertical with Text
 
-	/** Leading edge for text. */
-	case object Leading extends Text
+  /** Leading edge for text. */
+  case object Leading extends Text
 
-	/** Trailing edge for text. */
-	case object Trailing extends Text
+  /** Trailing edge for text. */
+  case object Trailing extends Text
 
-	/** Text justification. */
-	case object Justified extends Text
+  /** Text justification. */
+  case object Justified extends Text
+
+  val opp = (d: Direction) => d match {
+    case Top         => Bottom
+    case Bottom      => Top
+    case Left        => Right
+    case Right       => Left
+    case TopLeft     => BottomRight
+    case BottomRight => TopLeft
+    case TopRight    => BottomLeft
+    case BottomLeft  => TopRight
+  }
+
+  def opposite(d: Direction) = d match {
+    case Top         => Bottom
+    case Bottom      => Top
+    case Left        => Right
+    case Right       => Left
+    case TopLeft     => BottomRight
+    case BottomRight => TopLeft
+    case TopRight    => BottomLeft
+    case BottomLeft  => TopRight
+  }
 }
 
 /** Base of the alignment hierarchy.
@@ -119,8 +141,8 @@ sealed trait Alignment
   * @see [[scalawt.Alignment.BottomLeft]]
   */
 sealed trait Direction extends Alignment {
-	/** Returns the opposite direction. */
-	def opposite: Alignment
+  /** Returns the opposite direction. */
+  def opposite: Alignment
 }
 
 /** Base of the horizontal alignment hierarchy.

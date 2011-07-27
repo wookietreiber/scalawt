@@ -28,11 +28,11 @@ package scalawt
 
 /** Holds the actual orientation objects. */
 object Orientation {
-	/** Horizontal orientation. */
-	case object Horizontal extends Orientation
+  /** Horizontal orientation. */
+  case object Horizontal extends Orientation
 
-	/** Vertical orientation. */
-	case object Vertical extends Orientation
+  /** Vertical orientation. */
+  case object Vertical extends Orientation
 }
 
 /** Base of orientations.
