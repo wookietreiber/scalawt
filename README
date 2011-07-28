@@ -29,14 +29,6 @@ DirectFB or SDL which all support many systems (especially SDL). I also would
 like to support text user interfaces (TUIs) via e.g. ncurses as well as web
 user interfaces for web browsers.
 
-Also it would be kinda awesome to use Actors for concurrency instead of the an
-EDT -- I don't know whether or not this can be achieved at all -- just
-spitballing here -- though it would be nice to do things like:
-
-    val button = ...
-    button ! ReceiveFocus
-    button ! HandleInput('a', Shift)
-
  -----------------------------------------------------------------------------
    roadmap
  -----------------------------------------------------------------------------
