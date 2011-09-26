@@ -27,58 +27,63 @@
 package scalawt
 
 import Alignment._
-import org.specs2.mutable._
+import org.specs2._
 
-class AlignmentSpec extends Specification {
-
-  // -----------------------------------------------------------------------
-  // category specifications
-  // -----------------------------------------------------------------------
-
-  "Direction" should {
-    "include Top"         in { Top         must beLike { case x: Direction => ok } }
-    "include Bottom"      in { Bottom      must beLike { case x: Direction => ok } }
-    "include Left"        in { Left        must beLike { case x: Direction => ok } }
-    "include Right"       in { Right       must beLike { case x: Direction => ok } }
-    "include TopLeft"     in { TopLeft     must beLike { case x: Direction => ok } }
-    "include TopRight"    in { TopRight    must beLike { case x: Direction => ok } }
-    "include BottomLeft"  in { BottomLeft  must beLike { case x: Direction => ok } }
-    "include BottomRight" in { BottomRight must beLike { case x: Direction => ok } }
-  }
-
-  "Horizontal" should {
-    "include Left"   in { Left   must beLike { case x: Horizontal => ok } }
-    "include Center" in { Center must beLike { case x: Horizontal => ok } }
-    "include Right"  in { Right  must beLike { case x: Horizontal => ok } }
-  }
-
-  "Vertical" should {
-    "include Top"    in { Top    must beLike { case x: Vertical => ok } }
-    "include Center" in { Center must beLike { case x: Vertical => ok } }
-    "include Bottom" in { Bottom must beLike { case x: Vertical => ok } }
-  }
-
-  "Text" should {
-    "include Left"      in { Left      must beLike { case x: Text => ok } }
-    "include Center"    in { Center    must beLike { case x: Text => ok } }
-    "include Right"     in { Right     must beLike { case x: Text => ok } }
-    "include Justified" in { Justified must beLike { case x: Text => ok } }
-    "include Leading"   in { Leading   must beLike { case x: Text => ok } }
-    "include Trailing"  in { Trailing  must beLike { case x: Text => ok } }
-  }
+class AlignmentSpec extends Specification { def is =
 
   // -----------------------------------------------------------------------
-  // opposite direction specification
+  // fragments
   // -----------------------------------------------------------------------
 
-  "Direction opposites" should {
-    "work for Top"         in { Top.         opposite must_== Bottom      }
-    "work for Bottom"      in { Bottom.      opposite must_== Top         }
-    "work for Left"        in { Left.        opposite must_== Right       }
-    "work for Right"       in { Right.       opposite must_== Left        }
-    "work for TopLeft"     in { TopLeft.     opposite must_== BottomRight }
-    "work for BottomRight" in { BottomRight. opposite must_== TopLeft     }
-    "work for TopRight"    in { TopRight.    opposite must_== BottomLeft  }
-    "work for BottomLeft"  in { BottomLeft.  opposite must_== TopRight    }
-  }
+  "Alignment specification"                                                   ^
+                                                                             p^
+  "Horizontal alignments should include"                                      ^
+    "Left"                        ! horizontal(Left)                          ^
+    "Center"                      ! horizontal(Center)                        ^
+    "Right"                       ! horizontal(Right)                         ^
+                                                                             p^
+  "Vertical alignments should include"                                        ^
+    "Top"                         ! vertical(Top)                             ^
+    "Center"                      ! vertical(Center)                          ^
+    "Bottom"                      ! vertical(Bottom)                          ^
+                                                                             p^
+  "Text alignments should include"                                            ^
+    "Left"                        ! text(Left)                                ^
+    "Center"                      ! text(Center)                              ^
+    "Right"                       ! text(Right)                               ^
+    "Justified"                   ! text(Justified)                           ^
+    "Leading"                     ! text(Leading)                             ^
+    "Trailing"                    ! text(Trailing)                            ^
+                                                                             p^
+  "Directions should include"                                                 ^
+    "Top"                         ! direction(Top)                            ^
+    "Bottom"                      ! direction(Bottom)                         ^
+    "Left"                        ! direction(Left)                           ^
+    "Right"                       ! direction(Right)                          ^
+    "TopLeft"                     ! direction(TopLeft)                        ^
+    "TopRight"                    ! direction(TopRight)                       ^
+    "BottomLeft"                  ! direction(BottomLeft)                     ^
+    "BottomRight"                 ! direction(BottomRight)                    ^
+                                                                             p^
+  "Directions should have correct opposites"                                  ^
+    "Top         -> Bottom"       ! opposite(Top,         Bottom)             ^
+    "Bottom      -> Top"          ! opposite(Bottom,      Top)                ^
+    "Left        -> Right"        ! opposite(Left,        Right)              ^
+    "Right       -> Left"         ! opposite(Right,       Left)               ^
+    "TopLeft     -> BottomRight"  ! opposite(TopLeft,     BottomRight)        ^
+    "BottomRight -> TopLeft"      ! opposite(BottomRight, TopLeft)            ^
+    "TopRight    -> BottomLeft"   ! opposite(TopRight,    BottomLeft)         ^
+    "BottomLeft  -> TopRight"     ! opposite(BottomLeft,  TopRight)           ^
+                                                                            end
+  // -----------------------------------------------------------------------
+  // tests
+  // -----------------------------------------------------------------------
+
+  def text(a: Alignment)       = a must beLike { case x: Text       => ok }
+  def direction(a: Alignment)  = a must beLike { case x: Direction  => ok }
+  def horizontal(a: Alignment) = a must beLike { case x: Horizontal => ok }
+  def vertical(a: Alignment)   = a must beLike { case x: Vertical   => ok }
+
+  def opposite(a: Direction, b: Direction) = a.opposite must_== b
+
 }
