@@ -26,4 +26,9 @@
 
 /** Scalawt base package. */
 package object scalawt {
+  class IntOps(h: Int) {
+    def ::(w: Int) = Scale(w,h)
+  }
+
+  implicit def int2intops(i: Int) = new IntOps(i)
 }

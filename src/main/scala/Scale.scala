@@ -26,44 +26,4 @@
 
 package scalawt
 
-/** Top-level container.
-  *
-  * @todo use `centered` Boolean property for relocating windows to different
-  * screens (and immediately centering it on that screen)
-  */
-abstract class Window extends Widget with Container {
-
-  /** Returns the title of this window. */
-  def title: String
-
-  // -----------------------------------------------------------------------
-  // size
-  // -----------------------------------------------------------------------
-
-  /** Reduces this windows size to the smallest possible amount. */
-  def pack()
-
-  /** Resizes this window so it fits the given scale. */
-  def scale(s: Scale)
-
-  // -----------------------------------------------------------------------
-  // location
-  // -----------------------------------------------------------------------
-
-  /** Relocates this window to the center of the screen. */
-  def center()
-
-  // -----------------------------------------------------------------------
-  // convenience
-  // -----------------------------------------------------------------------
-
-  /** Packs and then centers this window.
-    *
-    * @see [[scalawt.Window#pack]] and [[scalawt.Window#center]]
-    */
-  final def packAndCenter() {
-    pack()
-    center()
-  }
-
-}
+case class Scale(w: Int, h: Int)

@@ -26,44 +26,25 @@
 
 package scalawt
 
-/** Top-level container.
-  *
-  * @todo use `centered` Boolean property for relocating windows to different
-  * screens (and immediately centering it on that screen)
-  */
-abstract class Window extends Widget with Container {
+import org.specs2._
 
-  /** Returns the title of this window. */
-  def title: String
+class ScaleSpec extends Specification { def is =
 
   // -----------------------------------------------------------------------
-  // size
+  // fragments
   // -----------------------------------------------------------------------
 
-  /** Reduces this windows size to the smallest possible amount. */
-  def pack()
-
-  /** Resizes this window so it fits the given scale. */
-  def scale(s: Scale)
-
+  "Scale specification"                                                       ^
+                                                                             p^
+  "Scale DSL syntax should return a Scale with the right"                     ^
+    "width"                       ! scalew16(16::10)                          ^
+    "height"                      ! scaleh10(16::10)                          ^
+                                                                            end
   // -----------------------------------------------------------------------
-  // location
-  // -----------------------------------------------------------------------
-
-  /** Relocates this window to the center of the screen. */
-  def center()
-
-  // -----------------------------------------------------------------------
-  // convenience
+  // tests
   // -----------------------------------------------------------------------
 
-  /** Packs and then centers this window.
-    *
-    * @see [[scalawt.Window#pack]] and [[scalawt.Window#center]]
-    */
-  final def packAndCenter() {
-    pack()
-    center()
-  }
+  def scalew16(s: Scale) = s.w must_== 16
+  def scaleh10(s: Scale) = s.h must_== 10
 
 }
