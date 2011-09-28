@@ -26,4 +26,7 @@
 
 package scalawt
 
-case class Scale(w: Int, h: Int)
+case class Scale(width: Int, height: Int) {
+  def w = width
+  def h = height
+}
