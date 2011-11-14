@@ -26,10 +26,54 @@
 
 package scalawt
 
+import collection.mutable.{ Buffer, ArrayBuffer }
+
 /** Contains other widgets. */
-trait Container {
+trait Container extends Buffer[Component] {
   self: Widget =>
 
+  // -----------------------------------------------------------------------
+  // content management
+  // -----------------------------------------------------------------------
+
   /** Returns the contained components. */
-  def contents: Seq[Component]
+  object contents extends ArrayBuffer[Component]
+
+  /** Returns an iterator of the contained components. */
+  final def iterator = contents.iterator
+
+  /** Returns the `n`th component. */
+  final def apply(n: Int) = contents(n)
+
+  /** Replaces the `n`th component with the given one. */
+  final def update(n: Int, c: Component) {
+    contents(n) = c
+  }
+
+  /** Returns the amount of contained components. */
+  final def length = contents.length
+
+  /** Appends the given component. */
+  final def +=(c: Component) = {
+    contents += c
+    this
+  }
+
+  /** Prepends the given component. */
+  final def +=:(c: Component) = {
+    c +=: contents
+    this
+  }
+
+  /** Inserts the components at the given index. */
+  final def insertAll(n: Int, cs: Traversable[Component]) {
+    contents.insertAll(n, cs)
+  }
+
+  /** Removes the `n`th component. */
+  final def remove(n: Int) = contents.remove(n)
+
+  /** Removes all components. */
+  final def clear() = contents.clear()
+
 }
