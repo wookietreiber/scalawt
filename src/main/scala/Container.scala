@@ -28,13 +28,8 @@ package scalawt
 
 import collection.mutable.{ Buffer, ArrayBuffer }
 
-/** Contains other widgets. */
-trait Container extends Buffer[Component] {
-  self: Widget =>
-
-  // -----------------------------------------------------------------------
-  // content management
-  // -----------------------------------------------------------------------
+/** Mixin for a [[scalawt.Widget]] that lets it contain components. */
+trait Container extends Buffer[Component] { self: Widget =>
 
   /** Returns the contained components. */
   object contents extends ArrayBuffer[Component]

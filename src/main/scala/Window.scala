@@ -36,6 +36,9 @@ abstract class Window extends Widget with Container {
   /** Returns the title of this window. */
   def title: String
 
+  /** Sets the title of this window. */
+  def title_=(s: String)
+
   // -----------------------------------------------------------------------
   // size
   // -----------------------------------------------------------------------

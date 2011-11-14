@@ -26,8 +26,10 @@
 
 package scalawt
 
-/** User interface component. */
+/** A user interface element that can be contained and laid out. */
 abstract class Component extends Widget {
+
   /** Optionally returns the parent [[scalawt.Container]] of this component. */
   def parent: Option[Container]
+
 }
