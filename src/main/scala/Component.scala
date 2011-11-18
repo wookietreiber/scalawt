@@ -26,10 +26,21 @@
 
 package scalawt
 
-/** A user interface element that can be contained and laid out. */
+/** A widget which can be contained by a [[scalawt.Container]].
+  *
+  * A `Component` can have only one parent `Container`. This includes that it
+  * will '''always''' be listed in the contents of '''only one''' `Container`.
+  */
 abstract class Component extends Widget {
 
+  private var _container: Option[Container] = None
+
   /** Optionally returns the parent [[scalawt.Container]] of this component. */
-  def parent: Option[Container]
+  def container: Option[Container] = _container
+
+  /** @todo only `Container` should be allowed to use this def */
+  private[scalawt] def container_=(p: Option[Container]) {
+    _container = p
+  }
 
 }
