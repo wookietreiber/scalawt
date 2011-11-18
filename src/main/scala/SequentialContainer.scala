@@ -26,23 +26,70 @@
 
 package scalawt
 
-/** Mixin for a [[scalawt.Widget]] that lets it contain components. */
-trait Container { self: Widget =>
+import collection.mutable.{ Buffer, ArrayBuffer }
+
+/** A container with a sequential order of components. */
+trait SequentialContainer extends Container { self: Widget =>
+
+  private val _components = ArrayBuffer[Component]()
 
   /** Returns the contained components. */
-  def components: Seq[Component]
+  override object components extends Buffer[Component] {
 
-  /** Sets `container` and `owner` of the new child component to this container
-    * and its owner. */
-  protected final def addChild(c: Component) {
-    c.container = this
-    c.owner = owner
-  }
+    /** Returns the amount of contained components. */
+    final def length = _components.length
 
-  /** Unsets `container` and `owner` of the to be removed child. */
-  protected final def removeChild(c: Component) {
-    c.container = None
-    c.owner = None
+    /** Returns an iterator of the contained components. */
+    final def iterator = _components.iterator
+
+    /** Returns the `n`th component. */
+    final def apply(n: Int) = _components(n)
+
+    /** Replaces the `n`th component with the given one. */
+    final def update(n: Int, c: Component) {
+      if (!(_components exists { _ eq c })) {
+        removeChild(apply(n))
+        _components(n) = c
+        addChild(c)
+      }
+    }
+
+    /** Appends the given component. */
+    final def +=(c: Component) = {
+      if (!(_components exists { _ eq c })) {
+        _components += c
+        addChild(c)
+      }
+      this
+    }
+
+    /** Prepends the given component. */
+    final def +=:(c: Component) = {
+      if (!(_components exists { _ eq c })) {
+        c +=: _components
+        addChild(c)
+      }
+      this
+    }
+
+    /** Inserts the components at the given index. */
+    final def insertAll(n: Int, cs: Traversable[Component]) {
+      val actuallyNew = cs filterNot { _components contains _ }
+      _components.insertAll(n, actuallyNew)
+      actuallyNew foreach { addChild(_) }
+    }
+
+    /** Removes the `n`th component. */
+    final def remove(n: Int) = {
+      removeChild(apply(n))
+      _components.remove(n)
+    }
+
+    /** Removes all components. */
+    final def clear() {
+      _components foreach { removeChild(_) }
+      _components.clear()
+    }
   }
 
 }
