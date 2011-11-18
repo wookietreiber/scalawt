@@ -26,9 +26,16 @@
 
 /** Scalawt base package. */
 package object scalawt {
+
+  /** Int widener/wrapper for convenience/DSL. */
   class IntOps(height: Int) {
     def ::(width: Int) = Scale(width,height)
   }
 
+  /** Widens an Int. */
   implicit def int2intops(i: Int) = new IntOps(i)
+
+  /** Converts something to some something. */
+  implicit def any2some[A](a: A) = Some(a)
+
 }
