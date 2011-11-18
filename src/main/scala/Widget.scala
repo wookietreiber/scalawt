@@ -29,7 +29,14 @@ package scalawt
 /** The lowest common denominator of user interface elements. */
 abstract class Widget {
 
-  /** Optionally returns the parent [[scalawt.Window]] of this widget. */
-  def owner: Option[Window]
+  private var _owner: Option[Window] = None
+
+  /** Optionally returns the owning [[scalawt.Window]] of this widget. */
+  def owner: Option[Window] = _owner
+
+  /** @todo only `Container` should be allowed to use this def */
+  private[scalawt] def owner_=(o: Option[Window]) {
+    _owner = o
+  }
 
 }
