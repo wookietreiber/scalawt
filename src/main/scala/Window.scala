@@ -31,7 +31,7 @@ package scalawt
   * @todo use `centered` Boolean property for relocating windows to different
   * screens (and immediately centering it on that screen)
   */
-abstract class Window extends Widget with Container { self: Layout =>
+abstract class Window extends Widget { self: Container =>
 
   /** Returns the title of this window. */
   def title: String
