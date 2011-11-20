@@ -24,6 +24,8 @@
  ****************************************************************************/
 
 
+package scalax
+
 /** Scalawt base package. */
 package object scalawt {
 

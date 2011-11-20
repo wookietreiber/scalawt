@@ -24,8 +24,8 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
-/** Window with a [[scalawt.MenuBar]]. */
+/** Window with a [[scalax.scalawt.MenuBar]]. */
 class Frame extends Window with RootPaneContainer {
 }

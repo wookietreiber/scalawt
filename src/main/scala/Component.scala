@@ -24,9 +24,9 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
-/** A widget which can be contained by a [[scalawt.Container]].
+/** A widget which can be contained by a [[scalax.scalawt.Container]].
   *
   * A `Component` can have only one parent `Container`. This includes that it
   * will '''always''' be listed in the contents of '''only one''' `Container`.
@@ -35,7 +35,7 @@ abstract class Component extends Widget {
 
   private var _container: Option[Container] = None
 
-  /** Optionally returns the parent [[scalawt.Container]] of this component. */
+  /** Optionally returns the parent [[scalax.scalawt.Container]] of this component. */
   def container: Option[Container] = _container
 
   /** @todo only `Container` should be allowed to use this def */

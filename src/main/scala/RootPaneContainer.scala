@@ -24,12 +24,12 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
-/** The default `Container` [[scalawt.Frame]] uses.
+/** The default `Container` [[scalax.scalawt.Frame]] uses.
   *
-  * It provides access to the [[scalawt.MenuBar]] and the actual
-  * [[scalawt.Container]] where the added [[scalawt.Component]]s are forwarded
+  * It provides access to the [[scalax.scalawt.MenuBar]] and the actual
+  * [[scalax.scalawt.Container]] where the added [[scalax.scalawt.Component]]s are forwarded
   * to.
   */
 trait RootPaneContainer extends Container { self: Window =>

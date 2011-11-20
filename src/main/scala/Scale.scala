@@ -24,7 +24,7 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
 case class Scale(width: Int, height: Int) {
   def w = width

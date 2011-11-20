@@ -24,9 +24,9 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
-/** Mixin for a [[scalawt.Widget]] that lets it contain components. */
+/** Mixin for a [[scalax.scalawt.Widget]] that lets it contain components. */
 trait Container { self: Widget =>
 
   /** Returns the contained components. */

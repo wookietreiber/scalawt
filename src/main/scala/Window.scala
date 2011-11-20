@@ -24,7 +24,7 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
 /** Top-level container.
   *
@@ -72,7 +72,7 @@ abstract class Window extends Widget { self: Container =>
 
   /** Packs and then centers this window.
     *
-    * @see [[scalawt.Window#pack]] and [[scalawt.Window#center]]
+    * @see [[scalax.scalawt.Window#pack]] and [[scalax.scalawt.Window#center]]
     */
   final def packAndCenter() {
     pack()

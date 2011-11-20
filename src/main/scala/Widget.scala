@@ -24,14 +24,14 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
 /** The lowest common denominator of user interface elements. */
 abstract class Widget {
 
   private var _owner: Option[Window] = None
 
-  /** Optionally returns the owning [[scalawt.Window]] of this widget. */
+  /** Optionally returns the owning [[scalax.scalawt.Window]] of this widget. */
   def owner: Option[Window] = _owner
 
   /** @todo only `Container` should be allowed to use this def */

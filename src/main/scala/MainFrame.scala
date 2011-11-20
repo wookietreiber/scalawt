@@ -24,9 +24,9 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
-/** The root [[scalawt.Window]] an application should use.
+/** The root [[scalax.scalawt.Window]] an application should use.
   *
   * It has no owning or parent `Window`.
   */

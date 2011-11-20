@@ -24,7 +24,7 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
 /** A simple widget displaying text and/or an icon.
   *

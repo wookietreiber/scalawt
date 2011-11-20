@@ -24,7 +24,7 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
 /** `Dialog` factory which returns fully set up instances. */
 object Dialog {
@@ -33,7 +33,7 @@ object Dialog {
 /** Simple window with the ability to be modal.
   *
   * Dialogs usually have no menu and therefore do not use
-  * [[scalawt.RootPaneContainer]] as their default `Container`. Use the
+  * [[scalax.scalawt.RootPaneContainer]] as their default `Container`. Use the
   * companion object to create default dialogs or extend this class to
   * create your own, custom ones.
   */

@@ -24,7 +24,7 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
 /** Holds the actual orientation objects. */
 object Orientation {
@@ -37,7 +37,7 @@ object Orientation {
 
 /** Base of orientations.
   *
-  * @see [[scalawt.Orientation.Horizontal]]
-  * @see [[scalawt.Orientation.Vertical]]
+  * @see [[scalax.scalawt.Orientation.Horizontal]]
+  * @see [[scalax.scalawt.Orientation.Vertical]]
   */
 sealed trait Orientation

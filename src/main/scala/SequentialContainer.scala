@@ -24,7 +24,7 @@
  ****************************************************************************/
 
 
-package scalawt
+package scalax.scalawt
 
 import collection.mutable.{ Buffer, ArrayBuffer }
 
