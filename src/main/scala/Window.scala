@@ -28,33 +28,43 @@ package scalawt
 
 /** Top-level container.
   *
-  * @todo use `centered` Boolean property for relocating windows to different
+  * @todo `centered` Boolean property for relocating windows to different
   * screens (and immediately centering it on that screen)
   */
 abstract class Window extends Widget { self: Container =>
 
+  private var _title: String = ""
+
   /** Returns the title of this window. */
-  def title: String
+  def title: String = _title
 
   /** Sets the title of this window. */
-  def title_=(s: String)
+  def title_=(t: String) {
+    _title = t
+  }
 
   // -----------------------------------------------------------------------
   // size
   // -----------------------------------------------------------------------
 
   /** Reduces this windows size to the smallest possible amount. */
-  def pack()
+  def pack() {
+    ???
+  }
 
   /** Resizes this window so it fits the given scale. */
-  def scale(s: Scale)
+  def scale(s: Scale) {
+    ???
+  }
 
   // -----------------------------------------------------------------------
   // location
   // -----------------------------------------------------------------------
 
   /** Relocates this window to the center of the screen. */
-  def center()
+  def center() {
+    ???
+  }
 
   // -----------------------------------------------------------------------
   // convenience
