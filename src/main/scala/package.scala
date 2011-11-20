@@ -38,4 +38,7 @@ package object scalawt {
   /** Converts something to some something. */
   implicit def any2some[A](a: A) = Some(a)
 
+  /** @todo remove as soon as in Predef */
+  def ??? = throw new RuntimeException("not yet implemented")
+
 }
