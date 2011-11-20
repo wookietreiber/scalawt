@@ -26,27 +26,7 @@
 
 package scalax.scalawt
 
-/** `Dialog` factory which returns fully set up instances. */
-object Dialog {
-}
-
-/** Simple window with the ability to be modal.
-  *
-  * Dialogs usually have no menu and therefore do not use
-  * [[scalax.scalawt.RootContainer]] as their default `Container`. Use the
-  * companion object to create default dialogs or extend this class to
-  * create your own, custom ones.
-  */
-abstract class Dialog extends Window { self: Container =>
-
-  private var _modal: Boolean = false
-
-  /** Returns the modal property. */
-  def modal: Boolean = _modal
-
-  /** Sets the modal property. */
-  def modal_=(m: Boolean) {
-    _modal = m
-  }
-
+/** A menu bar with a sequential, horizontal ordering of menus. */
+class MenuBar extends Component with SequentialContainer {
+  orientation = Orientation.Horizontal
 }

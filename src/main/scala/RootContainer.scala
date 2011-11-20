@@ -32,6 +32,18 @@ package scalax.scalawt
   * [[scalax.scalawt.Container]] where the added [[scalax.scalawt.Component]]s are forwarded
   * to.
   */
-trait RootPaneContainer extends Container { self: Window =>
+trait RootContainer extends Container { self: Window =>
+
   def components = ???
+
+  private var _menuBar: MenuBar = new MenuBar
+
+  /** Returns this windows menu bar. */
+  def menuBar: MenuBar = _menuBar
+
+  /** Sets this windows menu bar. */
+  def menuBar_=(m: MenuBar) {
+    _menuBar = m
+  }
+
 }

@@ -31,6 +31,10 @@ import collection.mutable.{ Buffer, ArrayBuffer }
 /** A container with a sequential order of components. */
 trait SequentialContainer extends Container { self: Widget =>
 
+  // -----------------------------------------------------------------------
+  // component handling
+  // -----------------------------------------------------------------------
+
   private val _components = ArrayBuffer[Component]()
 
   /** Returns the contained components. */
@@ -90,6 +94,20 @@ trait SequentialContainer extends Container { self: Widget =>
       _components foreach { removeChild(_) }
       _components.clear()
     }
+  }
+
+  // -----------------------------------------------------------------------
+  // orientation handling
+  // -----------------------------------------------------------------------
+
+  private var _orientation: Orientation = Orientation.Horizontal
+
+  /** Returns this containers orientation. */
+  def orientation: Orientation = _orientation
+
+  /** Sets this containers orientation. */
+  def orientation_=(o: Orientation) {
+    _orientation = o
   }
 
 }

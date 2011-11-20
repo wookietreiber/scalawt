@@ -27,5 +27,5 @@
 package scalax.scalawt
 
 /** Window with a [[scalax.scalawt.MenuBar]]. */
-class Frame extends Window with RootPaneContainer {
+class Frame extends Window with RootContainer {
 }
