@@ -26,7 +26,7 @@
 
 package scalax.scalawt
 
-/** A menu bar with a sequential, default horizontal ordering. */
-class MenuBar extends Component with SequentialContainer {
-  orientation = Orientation.Horizontal
+/** A menu with a sequential, default vertical ordering. */
+class Menu extends Component with SequentialContainer {
+  orientation = Orientation.Vertical
 }
