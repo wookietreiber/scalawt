@@ -6,29 +6,31 @@ import Dependencies._
 import BuildSettings._
 
 object BuildSettings {
-  val buildOrganization = "com.github.wookietreiber.scalawt"
-  val buildVersion      = "0.0.1"
-  val buildScalaVersion = "2.9.1"
+  lazy val buildOrganization = "com.github.scalawt"
+  lazy val buildVersion      = "0.1-SNAPSHOT"
+  lazy val buildScalaVersion = "2.9.1"
 
-  val buildSettings = Defaults.defaultSettings ++ Seq (
+  lazy val buildSettings = Defaults.defaultSettings ++ Seq (
     organization := buildOrganization,
     version      := buildVersion,
-    scalaVersion := buildScalaVersion
+    scalaVersion := buildScalaVersion,
+    resolvers    += typesafe
   )
 }
 
 object ScalawtBuild extends Build {
   lazy val root = Project ( "scalawt", file ("."),
     settings = buildSettings ++ Seq (
-      libraryDependencies ++= Seq ( specs2 )
+      libraryDependencies ++= Seq ( actor, specs2 )
     )
   )
 }
 
 object Dependencies {
-  val specs2 = "org.specs2" %% "specs2" % "1.6.1" % "test"
+  lazy val actor  = "com.typesafe.akka" % "akka-actor" % "2.0-RC3"
+  lazy val specs2 = "org.specs2" %% "specs2" % "1.8.2" % "test"
 }
 
 object Resolvers {
-  val typesafe = "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases"
+  lazy val typesafe = "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases"
 }
